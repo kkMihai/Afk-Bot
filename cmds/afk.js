@@ -18,7 +18,7 @@ module.exports.run = async (bot, message, args) => {
     .setColor("GREEN")
     
     if (!afk) {
-      embed.setDescription(`<:afk:768877184579796995> **| __${message.author.tag}__ you are now AFK\nReason: ${args.join(" ") ? args.join(" ") : "AFK"}**`)
+      embed.setDescription(`**__${message.author.tag}__ you are now AFK\nReason: ${args.join(" ") ? args.join(" ") : "AFK"}**`)
       status.set(`${message.author.id}_${message.guild.id}`, args.join(" "))
 
     message.channel.send(embed)  
