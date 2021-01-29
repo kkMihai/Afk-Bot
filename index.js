@@ -20,7 +20,7 @@ bot.on("message", message => {
    if (status) {
       const embed1 = new Discord.MessageEmbed()
       .setColor("GREEN")
-     .setDescription(`<:afk:768877184579796995> **| ${mentioned.user.tag} is AFK: ${status}**`)
+     .setDescription(`**${mentioned.user.tag} is AFK: ${status}**`)
 
       message.channel.send(embed1).then(i => i.delete({timeout: 10000}));
 
@@ -32,7 +32,7 @@ bot.on("message", message => {
    afk.delete(`${message.author.id}_${message.guild.id}`)
     const embed2 = new Discord.MessageEmbed()
     .setColor("GREEN")
-    .setDescription(`<:afk:768877184579796995> **| Welcome Back __${message.author.tag}__, you are no longer AFK**`)
+    .setDescription(`**Welcome Back __${message.author.tag}__, you are no longer AFK**`)
 
     message.channel.send(embed2).then(i => i.delete({timeout: 10000}));
  }
