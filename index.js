@@ -9,7 +9,7 @@ bot.on("ready", async () => {
   })
 
 
-bot.on("message", message => {
+bot.on("message", async message => {
   let afk = new db.table("AFKs")
   const authorStatus = await afk.get(`${message.author.id}_${message.guild.id}`)
    const mentioned = message.mentions.members.first()
