@@ -8,6 +8,48 @@ bot.on("ready", async () => {
   console.log(`Logged in as ${bot.user.tag}`);
   })
 
+
+bot.on("message", message => {
+
+  let afk = new db.table("AFKs")
+  const authorStatus = await afk.get(`${message.author.id}_${message.guild.id}`)
+   const mentioned = message.mentions.members.first()
+
+  
+  if (mentioned) {
+    const status = await afk.fetch(`${mentioned.id}_${message.guild.id}`);
+
+     if (status) {
+
+      const embed1 = new Discord.MessageEmbed()
+      .setColor("GREEN")
+     .setDescription(`<:afk:768877184579796995> **| ${mentioned.user.tag} is AFK: ${status}**`)
+
+      message.channel.send(embed1).then(i => i.delete({timeout: 10000}));
+
+    }
+
+  }
+})
+
+    
+
+    if (authorStatus) {
+afk.delete(`${message.author.id}_${message.guild.id}`)
+
+    const embed2 = new Discord.MessageEmbed()
+    .setColor("GREEN")
+    .setDescription(`<:afk:768877184579796995> **| Welcome Back __${message.author.tag}__, you are no longer AFK**`)
+   
+    message.channel.send(embed2).then(i => i.delete({timeout: 10000}));
+
+  }
+
+    
+
+
+     
+
 bot.on("message", async message => {
   if (!message.guild) return;
   if (message.author.bot) return;
