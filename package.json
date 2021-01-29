@@ -1,0 +1,17 @@
+{
+  "name": "Afk-Bot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "engines": {
+    "node": "12.x"
+  },
+  "author": "MihaiCit",
+  "license": "MIT",
+  "dependencies": {
+    "discord.js": "^12.5.0",
+    "quick.db": "^7.1.3"
+  }
+}
