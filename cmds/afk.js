@@ -17,9 +17,17 @@ module.exports.run = async (bot, message, args) => {
     const embed = new Discord.MessageEmbed()
     .setColor("GREEN")
     
+        if(!text) { 
+         text = "AFK"
+        	
+        } else { 
+          text = text
+        }
+
+    
     if (!afk) {
-      embed.setDescription(`**__${message.author.tag}__ you are now AFK\nReason: ${args.join(" ") ? args.join(" ") : "AFK"}**`)
-      status.set(`${message.author.id}_${message.guild.id}`, args.join(" "))
+      embed.setDescription(`**__${message.author.tag}__ you are now AFK\nReason: ${text}**`)
+      status.set(`${message.author.id}_${message.guild.id}`, text)
 
     message.channel.send(embed)  
     
